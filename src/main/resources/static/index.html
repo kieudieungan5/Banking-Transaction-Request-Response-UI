@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Digital Bank</title>
+<!--        Bootstrap css library-->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+<!--        Font awesome library-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    </head>
+
+    <body>
+<!--            Header-->
+        <div class="row bg-dark text-light p-4">
+            <div class="col d-flex-column">
+                <h1 class="ms-4 mt-4 ">DIGITAL BANKING</h1>
+                <h6 class="ms-4 fw-light">BANKING TRANSACTION MANAGEMENT</h6>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <span class="bg-dard rounded-4 me-4 p-2 ">Online</span>
+            </div>
+        </div>
+
+<!--            Showcase-->
+        <div class= "p-4">
+            <h4 class="ms-4">Danh mục chức năng</h4>
+
+            <div class="row g-4 m-4">
+
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#transferModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-money-bill-transfer fa-lg text-danger"></i>
+                            <h5 class="card-title">Chuyển tiền</h5>
+                            <p class="card-text text-secondary">Chuyển tiền giữa các tài khoản</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#depositModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-money-bill-trend-up fa-lg text-success"></i>
+                            <h5 class="card-title">Nạp tiền</h5>
+                            <p class="card-text text-secondary">Tiếp nhận giao dịch</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-4 m-4">
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#withdrawalModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-lg text-danger"></i>
+                            <h5 class="card-title">Rút tiền</h5>
+                            <p class="card-text text-secondary">Rút tiền từ tài khoản</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#historyModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-clock-rotate-left fa-lg"></i>
+                            <h5 class="card-title">Lịch sử giao dịch</h5>
+                            <p class="card-text text-secondary">Tra cứu theo số tài khoản</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-4 m-4">
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#accountModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-magnifying-glass-dollar fa-lg"></i>
+                            <h5 class="card-title">Tra cứu tài khoản</h5>
+                            <p class="card-text text-secondary">Theo mã khách hàng</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#customerModal">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-user fa-lg"></i>
+                            <h5 class="card-title">Tra cứu khách hàng</h5>
+                            <p class="card-text text-secondary">Theo số tài khoản</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+<!--    Form nhập thông tin chuyển tiền-->
+        <div class="modal fade" id="transferModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Chuyển tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="transferForm">
+                            <div class="mb-3">
+                                <label class="form-label">Mã khách hàng</label>
+                                <input type="text" class="form-control"
+                                       id="transferCustomerId"
+                                       name="customerId"
+                                       placeholder="Nhập mã khách hàng">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản nguồn</label>
+                                <input type="text" class="form-control"
+                                       id="transferAccountSource"
+                                       name="accountSource"
+                                        placeholder="Nhập số tài khoản nguồn">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản nhận</label>
+                                <input type="text" class="form-control"
+                                       id="transferAccountDestination"
+                                       name="accountDestination"
+                                        placeholder="Nhập số tài khoản nhận">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tiền chuyển</label>
+                                <input type="text" class="form-control"
+                                       id="transferAmount"
+                                       name="amount"
+                                        placeholder="Nhập số tiền">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+                        <p id="transferResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Form nhập thông tin nạp tiền-->
+        <div class="modal fade" id="depositModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nạp tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="depositForm">
+                            <div class="mb-3">
+                                <label class="form-label">Mã khách hàng</label>
+                                <input type="text" class="form-control"
+                                       id="depositCustomerId"
+                                       name="customerId"
+                                       placeholder="Nhập mã khách hàng">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản nạp</label>
+                                <input type="text" class="form-control"
+                                       id="depositAccountSource"
+                                       name="accountSource"
+                                        placeholder="Nhập số tài khoản nạp">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tiền chuyển</label>
+                                <input type="text" class="form-control"
+                                       id="depositAmount"
+                                       name="mount"
+                                        placeholder="Nhập số tiền nạp">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+                        <p id="depositResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Form nhập thông tin rút tiền-->
+        <div class="modal fade" id="withdrawalModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rút tiền</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="withdrawalForm">
+                            <div class="mb-3">
+                                <label class="form-label">Mã khách hàng</label>
+                                <input type="text" class="form-control"
+                                       id="withdrawalCustomerId"
+                                       name="customerId"
+                                       placeholder="Nhập mã khách hàng">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản rút</label>
+                                <input type="text" class="form-control"
+                                       id="withdrawalAccountSource"
+                                       name="accountSource"
+                                        placeholder="Nhập số tài khoản rút">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số tiền rút</label>
+                                <input type="text" class="form-control"
+                                       id="withdrawalAmount"
+                                       name="amount"
+                                        placeholder="Nhập số tiền rút">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+                        <p id="withdrawalResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Form nhập thông tin tra cứu giao dịch-->
+        <div class="modal fade" id="historyModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tra cứu giao dịch</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="historyForm">
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản tra cứu</label>
+                                <input type="text" class="form-control"
+                                       id="accountToRequestTransactionHistories"
+                                       name="accountNumber"
+                                        placeholder="Nhập số tài khoản">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+
+                        <div id="transactionHistoriesResult"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Form nhập thông tin tra cứu tài khoản-->
+        <div class="modal fade" id="accountModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tra cứu tài khoản</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="accountForm">
+                            <div class="mb-3">
+                                <label class="form-label">Mã Khách hàng tra cứu</label>
+                                <input type="text" class="form-control"
+                                       id="customerIdToRequestAccount"
+                                       name="customerId"
+                                        placeholder="Nhập mã khách hàng">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+                        <p id="accountsResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Form nhập thông tin tra cứu khách hàng-->
+        <div class="modal fade" id="customerModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tra cứu khách hàng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="customerForm">
+                            <div class="mb-3">
+                                <label class="form-label">Số tài khoản</label>
+                                <input type="text" class="form-control"
+                                       id="accountNumberToRequestCustomer"
+                                       name="accountNumber"
+                                        placeholder="Nhập số tài khoản">
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                Thực hiện
+                            </button>
+                        </form>
+                        <p id="customerResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    Bootstrap JS library-->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        ></script>
+
+<!--    JS file-->
+        <script
+            src="js/transfer.js"
+        ></script>
+        <script
+            src="js/transaction.js"
+        ></script>
+        <script
+            src="js/deposit.js"
+        ></script>
+        <script
+            src="js/withdrawal.js"
+        ></script>
+        <script
+            src="js/account.js"
+        ></script>
+        <script
+            src="js/customer.js"
+        ></script>
+
+    </body>
+
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container">
+            <div class="row">
+
+                <!-- Thông tin ngân hàng -->
+                <div class="col-md-6 mb-3">
+                    <h5>DIGITAL BANKING</h5>
+                    <p class="text-secondary mb-0">
+                        Banking Transaction Management System
+                    </p>
+                </div>
+
+                <!-- Thông tin liên hệ -->
+                <div class="col-md-6 mb-3 text-md-end">
+                    <p class="mb-1">Customer Support</p>
+                    <p class="text-secondary mb-0">
+                        Email: support@digitalbank.com
+                    </p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="text-center text-secondary">
+                <small>
+                    &copy; 2026 Digital Banking. All rights reserved.
+                </small>
+            </div>
+        </div>
+    </footer>
+
+</html>
