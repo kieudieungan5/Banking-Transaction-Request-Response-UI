@@ -16,7 +16,7 @@ The application follows a layered architecture:
 
 -   src/main/java/ – Backend Java source code.
 -   src/main/resources/ – Frontend UI and application resources.
--   database/ – SQL scripts for database initialization.
+-   [sqlscript](https://github.com/kieudieungan5/Banking-Transaction-Request-Response-UI/blob/b2d5e11/sqlscript) - SQL scripts for database initialization.
 
 ### Database Configuration
 
@@ -31,7 +31,7 @@ Install:
 
 #### 2. Create Database
 
-Create the `digital_bank` database and its tables by executing the SQL scripts provided in the `database/` directory.
+Create the `digital_bank` database and its tables by using the SQL scripts provided.
 
 #### 3. Configure Environment Variables
 
@@ -59,6 +59,7 @@ Replace the sample values with your own MySQL configuration.
 4.  Add the `database.env` file.
 5.  Apply the configuration.
 
-### 5. Run the Application
+#### 5. Run the Application
 
 Start the Spring Boot application from IntelliJ IDEA.
+Open the frontend by navigating to src/main/resources/static and opening [(index.html)](src/main/resources/index.html) in your browser.
