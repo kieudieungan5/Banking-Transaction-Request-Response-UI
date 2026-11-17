@@ -62,4 +62,4 @@ Replace the sample values with your own MySQL configuration.
 #### 5. Run the Application
 
 Start the Spring Boot application from IntelliJ IDEA.
-Open the frontend by navigating to src/main/resources/static and opening [(index.html)](src/main/resources/index.html) in your browser.
+Open the frontend by navigating to src/main/resources/static and opening [(index.html)]((https://github.com/kieudieungan5/Banking-Transaction-Request-Response-UI/blob/b2d5e11/src/main/resources/static/index.html)) in your browser.
